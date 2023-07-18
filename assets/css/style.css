@@ -1,12 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+
+
 /* variaveis */
 :root {
     --mainColor: #e6e6fa;
     --color: #7b68ee;
+    --font: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* formatação do container principal*/
+/* formatação do container principal e seletores genericos */
 body {
-    margin: 0 auto;
+    font-family: var(--font);
+    margin: 0;
 }
 
 .main-container {
@@ -15,61 +20,110 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 85%;
     margin: 10px auto;
     padding: 20px 10px;
     border-radius: 10px;
 }
 
+button{
+    cursor: pointer;
+}
+
 /* seletores alert */
 .alert {
     margin: 0;
+    
 }
 
 .alert-danger {
-    color: black;
+    background-color: lightpink;
+    color: firebrick;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .alert-sucess {
-    color: black;
+    background-color: palegreen;
+    color: forestgreen;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 /* formatação do nome da lista e seu editor */
 .name-container {
-    color: black;
+    display: flex;
+    align-items: center;
 }
 
 #list-name {
     text-align: center;
 }
 
+.edit-name {
+    margin: 0 0 0 15px;
+    background-color: var(--color);
+    color: white;
+    padding: 3px 8px;
+    border: none;
+    border-radius: 5px;
+}
+
 .list-name-form {
-    color: black;
+    display: none;
+}
+
+.hide-button{
+    display: none;
 }
 
 .show-form {
-    color: black;
+    display: inline-block;
 }
 
 #list-name-input {
-    color: black;
+    font-size: 0.9em;
+    width: 100px;
+    margin: 0 0 0 15px;
+    padding: 3px 8px;
+    border: none;
+    border-radius: 5px 0 0 5px;
 }
 
 #change-name-button {
-    color: black;
+    background-color: var(--color);
+    color: white;
+    margin: 0 0 0 -5px;
+    padding: 3px 8px;
+    border: none;
+    border-radius: 0 5px 5px 0;
 }
 
 /* formatação do form principal */
 .form-control {
-    color: black;
+    width: 100%;
+    text-align: center;
+    margin: 0 0 15px 0;
 }
 
 #input-item {
-    color: black;
+    font-size: 0.9em;
+    width: 200px;
+    margin: 0 0 0 15px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
 }
 
 .submit-button {
-    color: black;
+    background-color: var(--color);
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 0 0 0 -5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 0 5px 5px 0;
 }
 
 /* formatação da lista */
@@ -105,5 +159,14 @@ body {
 }
 
 .clear-button {
-    color: black;
+    background-color: transparent;
+    color: crimson;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+}
+
+.clear-button:hover{
+    color: lightcoral;
 }

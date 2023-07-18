@@ -1,7 +1,9 @@
 const alert = document.querySelector('.alert')
-const form = document.querySelector('.list-form')
+const editNameButton = document.querySelector('.edit-name')
+const formName = document.querySelector('.list-name-form')
 const listNameInput = document.getElementById('list-name-input')
 const changeNameButton = document.getElementById('change-name-button')
+const form = document.querySelector('.list-form')
 const inputItem = document.getElementById('input-item')
 const submitButton = document.querySelector('.submit-button')
 const listContainer = document.querySelector('.list-container')
@@ -12,9 +14,22 @@ let editElement
 let editFlag = false
 let editID = ""
 
+editNameButton.addEventListener('click', function(){
+    formName.classList.add('show-form')
+    editNameButton.classList.add('hide-button')
+})
+
 changeNameButton.addEventListener('click', function (){
-    let newText = listNameInput.value;
-    document.getElementById('list-name').textContent = newText + " List";
+    
+    if (listNameInput.value){
+        let newText = listNameInput.value
+        document.getElementById('list-name').textContent = newText + " List"
+    } else {
+        displayAlert("Enter a name for your list", "danger")
+    }
+    
+    formName.classList.remove('show-form')
+    editNameButton.classList.remove('hide-button')
 })
 
 form.addEventListener('submit', addItem())
@@ -71,4 +86,3 @@ function setBacktoDefault(){
 function addToLocalStorage(id, value){
 
 }
-//outra cor: thistle
