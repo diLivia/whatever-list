@@ -1,4 +1,109 @@
-:root{
+/* variaveis */
+:root {
     --mainColor: #e6e6fa;
-    --color: #7b68ee; 
+    --color: #7b68ee;
+}
+
+/* formatação do container principal*/
+body {
+    margin: 0 auto;
+}
+
+.main-container {
+    background-color: var(--mainColor);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 10px auto;
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+
+/* seletores alert */
+.alert {
+    margin: 0;
+}
+
+.alert-danger {
+    color: black;
+}
+
+.alert-sucess {
+    color: black;
+}
+
+/* formatação do nome da lista e seu editor */
+.name-container {
+    color: black;
+}
+
+#list-name {
+    text-align: center;
+}
+
+.list-name-form {
+    color: black;
+}
+
+.show-form {
+    color: black;
+}
+
+#list-name-input {
+    color: black;
+}
+
+#change-name-button {
+    color: black;
+}
+
+/* formatação do form principal */
+.form-control {
+    color: black;
+}
+
+#input-item {
+    color: black;
+}
+
+.submit-button {
+    color: black;
+}
+
+/* formatação da lista */
+.list-container {
+    color: black;
+}
+
+.show-container {
+    color: black;
+}
+
+.list {
+    color: black;
+}
+
+.list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button-container {
+    color: black;
+}
+
+.edit-button {
+    color: black;
+}
+
+.delete-button {
+    color: black;
+}
+
+.clear-button {
+    color: black;
 }

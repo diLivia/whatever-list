@@ -4,41 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/favicon/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Whatever List</title>
 </head>
 
 <body>
     <section class="main-container">
+        <p class="alert"></p>
         <div class="name-container">
             <h1 id="list-name">Whatever List</h1>
-            <input type="text" placeholder="change list name" id="list-name-input">
-            <button id="change-name-button"><i class="fa-solid fa-check"></i></button>
+            <div class="list-name-form">
+                <input type="text" placeholder="change list name" id="list-name-input">
+                <button id="change-name-button"><i class="fa-solid fa-check"></i></button>
+            </div>
         </div>
         <div class="form-control">
             <form class="list-form">
                 <input type="text" placeholder="enter your thing" id="input-item">
-                <button id="submit-button">Submit</button>
+                <button class="submit-button">Submit</button>
             </form>
         </div>
         <div class="list-container">
             <div class="list">
-                <article class="list-item">
-                    <p class="item-title">item</p>
-                    <div class="button-container">
-                        <button type="button" class="edit-button">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
-                        <button type="button" class="delete-button">
-                            <i class="fa-solid fa-trash"></i>
-                        </button>
-                    </div>
-                </article>
             </div>
         </div>
-        <button type="button" class="clear-btn">clear items</button>
-        </section>
+        <button type="button" class="clear-button">clear items</button>
+    </section>
 </body>
 <script src="https://kit.fontawesome.com/ecdff62a48.js" crossorigin="anonymous"></script>
 <script src="assets/js/script.js"></script>
+
 </html>
