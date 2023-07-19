@@ -1,11 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 /* variaveis */
 :root {
     --mainColor: #e6e6fa;
-    --color: #7b68ee;
-    --font: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --contrastColor: #7b68ee;
+    --lightGreen: palegreen;
+    --darkGreen: forestgreen;
+    --lightRed: lightpink;
+    --darkRed: firebrick;
+    --titleFont: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font: "Roboto Slab", serif;
 }
 
 /* formatação do container principal e seletores genericos */
@@ -30,22 +37,25 @@ button{
     cursor: pointer;
 }
 
+.hide{
+    display: none;
+}
+
 /* seletores alert */
 .alert {
     margin: 0;
-    
 }
 
 .alert-danger {
-    background-color: lightpink;
-    color: firebrick;
+    background-color: var(--lightRed);
+    color: var(--darkRed);
     padding: 5px 10px;
     border-radius: 5px;
 }
 
-.alert-sucess {
-    background-color: palegreen;
-    color: forestgreen;
+.alert-success {
+    background-color: var(--lightGreen);
+    color: var(--darkGreen);
     padding: 5px 10px;
     border-radius: 5px;
 }
@@ -57,24 +67,17 @@ button{
 }
 
 #list-name {
+    font-family: var(--titleFont);
     text-align: center;
 }
 
 .edit-name {
     margin: 0 0 0 15px;
-    background-color: var(--color);
+    background-color: var(--contrastColor);
     color: white;
     padding: 3px 8px;
     border: none;
     border-radius: 5px;
-}
-
-.list-name-form {
-    display: none;
-}
-
-.hide-button{
-    display: none;
 }
 
 .show-form {
@@ -91,7 +94,7 @@ button{
 }
 
 #change-name-button {
-    background-color: var(--color);
+    background-color: var(--contrastColor);
     color: white;
     margin: 0 0 0 -5px;
     padding: 3px 8px;
@@ -109,14 +112,13 @@ button{
 #input-item {
     font-size: 0.9em;
     width: 200px;
-    margin: 0 0 0 15px;
     padding: 5px 10px;
     border: none;
     border-radius: 5px 0 0 5px;
 }
 
 .submit-button {
-    background-color: var(--color);
+    background-color: var(--contrastColor);
     color: white;
     font-size: 0.9em;
     font-weight: bold;
@@ -128,45 +130,46 @@ button{
 
 /* formatação da lista */
 .list-container {
-    color: black;
+    visibility: hidden;
 }
 
 .show-container {
-    color: black;
-}
-
-.list {
-    color: black;
+    visibility: visible;
 }
 
 .list-item {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    width: 270px;
+    margin-bottom: -5px;
+    padding: -5px;
 }
 
-.button-container {
-    color: black;
+.edit-button, .delete-button{
+    background: transparent;
+    border: none;
+    font-size: 1em;
 }
 
 .edit-button {
-    color: black;
+    color: var(--darkGreen);
 }
 
 .delete-button {
-    color: black;
+    color: var(--darkRed);
 }
 
 .clear-button {
     background-color: transparent;
-    color: crimson;
+    color: var(--darkRed);
     font-size: 1em;
     font-weight: bold;
+    margin-top: 10px;
     padding: 5px 10px;
     border: none;
 }
 
 .clear-button:hover{
-    color: lightcoral;
+    color: var(--lightRed);
 }
