@@ -3,7 +3,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
-/* variaveis */
+/* variaveis 
+mudanças a fazer:
+- criar variaveis para formatação de texto
+    - captalize
+    - espaçamento da fonte de 'clear-item'
+    - tamanho da fonte
+    - familia da fonte
+- criar variaveis para outras cores
+    - destacar item que está sendo editado
+    - cor para hover de botões
+        - botão dos forms
+        - botão das listas
+- mudar cores poadrão
+    - tons terrosos
+- criar variaveis de animação 
+- criar variaveis de tamanho de box
+- criar variaveis de radius*/
 :root {
     --mainColor: #e6e6fa;
     --contrastColor: #7b68ee;
@@ -15,7 +31,11 @@
     --font: "Roboto Slab", serif;
 }
 
-/* formatação do container principal e seletores genericos */
+/* formatação do container principal e seletores genericos 
+mudanças a fazer: 
+- criar responsividade
+- criar box-shadow
+- mudar fontes, cores e outras formatações que incluem as variaveis */
 body {
     font-family: var(--font);
     margin: 0;
@@ -41,7 +61,10 @@ button{
     display: none;
 }
 
-/* seletores alert */
+/* seletores alert 
+mudanças a fazer:
+- criar responsividade
+- mudar cores e outras formatações relacionadas as variaveis */
 .alert {
     margin: 0;
 }
@@ -60,7 +83,10 @@ button{
     border-radius: 5px;
 }
 
-/* formatação do nome da lista e seu editor */
+/* formatação do nome da lista e seu editor
+mudanças a fazer:
+- criar responsividade
+- mudar cores e outras formatações relacionadas as variaveis */
 .name-container {
     display: flex;
     align-items: center;
@@ -86,7 +112,7 @@ button{
 
 #list-name-input {
     font-size: 0.9em;
-    width: 100px;
+    width: 70px;
     margin: 0 0 0 15px;
     padding: 3px 8px;
     border: none;
@@ -102,7 +128,10 @@ button{
     border-radius: 0 5px 5px 0;
 }
 
-/* formatação do form principal */
+/* formatação do form principal 
+mudanças a fazer:
+- criar responsividade
+- mudar cores e outras formatações relacionadas as variaveis */
 .form-control {
     width: 100%;
     text-align: center;
@@ -128,7 +157,12 @@ button{
     border-radius: 0 5px 5px 0;
 }
 
-/* formatação da lista */
+/* formatação da lista 
+mudanças a fazer:
+- criar responsividade
+- ajustar comportamento da lista
+    - mudar local do 'clear items'
+- mudar cores e outras formatações relacionadas as variaveis */
 .list-container {
     visibility: hidden;
 }
