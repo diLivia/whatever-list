@@ -1,169 +1,240 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-/* variaveis 
-mudanças a fazer:
-- criar variaveis para formatação de texto
-    - captalize
-    - espaçamento da fonte de 'clear-item'
-    - tamanho da fonte
-    - familia da fonte
-- criar variaveis para outras cores
-    - destacar item que está sendo editado
-    - cor para hover de botões
-        - botão dos forms
-        - botão das listas
-- mudar cores poadrão
-    - tons terrosos
-- criar variaveis de animação 
-- criar variaveis de tamanho de box
-- criar variaveis de radius*/
+/* variaveis */
 :root {
-    --mainColor: #e6e6fa;
-    --contrastColor: #7b68ee;
-    --lightGreen: palegreen;
-    --darkGreen: forestgreen;
-    --lightRed: lightpink;
-    --darkRed: firebrick;
-    --titleFont: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    --font: "Roboto Slab", serif;
+    --clr-primary-1: #5E3F36;
+    --clr-primary-2: #1F1D1C;
+    --clr-primary-3: #B6A39E;
+    --clr-grey-1: #3b3838;
+    --clr-grey-2: #605654;
+    --clr-grey-3: #f0e3dd;
+    --clr-red-dark: #bb2525;
+    --clr-red-light: #e66b6b;
+    --clr-green-dark: #26ba33;
+    --clr-green-light: #6be675;
+    --clr-white: #fff;
+    --clr-black: #090909;
+    --ff-primary: "Roboto Slab", sans-serif;
+    --ff-secondary: "Open Sans", sans-serif;
+    --transition: all 0.3s linear;
+    --spacing: 0.25rem;
+    --radius: 0.5rem;
+    --light-shadow: 0 5px 15px #0000001a;
+    --dark-shadow: 0 5px 15px #00000033;
+    --max-width: 1170px;
+    --fixed-width: 620px;
 }
 
-/* formatação do container principal e seletores genericos 
-mudanças a fazer: 
-- criar responsividade
-- criar box-shadow
-- mudar fontes, cores e outras formatações que incluem as variaveis */
-body {
-    font-family: var(--font);
+/* formatação do container principal e seletores genericos */
+*,
+::after,
+::before {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.main-container {
-    background-color: var(--mainColor);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 85%;
-    margin: 10px auto;
-    padding: 20px 10px;
-    border-radius: 10px;
+body {
+    font-family: var(--ff-secondary);
+    background-color: var(--clr-grey-3);
+    line-height: 1.5;
+    font-size: 0.9em;
 }
 
-button{
+h1 {
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+    line-height: 1.25;
+    font-family: var(--ff-primary);
+    font-size: 2em;
+}
+
+p {
+    margin-bottom: 1.25rem;
+    color: var(--clr-grey-5);
+}
+
+button {
     cursor: pointer;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-/* seletores alert 
-mudanças a fazer:
-- criar responsividade
-- mudar cores e outras formatações relacionadas as variaveis */
+.main-container {
+    background-color: var(--clr-white);
+    border-radius: var(--radius);
+    box-shadow: var(--light-shadow);
+    transition: var(--transition);
+    padding: 2rem;
+    width: 90vw;
+    margin: 0 auto;
+    max-width: 90%;
+    margin-top: 100px;
+}
+
+.main-container:hover {
+    box-shadow: var(--dark-shadow);
+}
+
+/* seletores alert */
 .alert {
-    margin: 0;
+    margin-bottom: 1rem;
+    height: 1.25rem;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    font-size: 0.7rem;
+    border-radius: 0.25rem;
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
 }
 
 .alert-danger {
-    background-color: var(--lightRed);
-    color: var(--darkRed);
-    padding: 5px 10px;
-    border-radius: 5px;
+    color: #721c24;
+    background-color: #f8d7da;
 }
 
 .alert-success {
-    background-color: var(--lightGreen);
-    color: var(--darkGreen);
-    padding: 5px 10px;
-    border-radius: 5px;
+    color: #155724;
+    background-color: #d4edda;
 }
 
-/* formatação do nome da lista e seu editor
-mudanças a fazer:
-- criar responsividade
-- mudar cores e outras formatações relacionadas as variaveis */
+/* formatação do nome da lista e seu editor */
 .name-container {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.list-name-form{
+    display: none; /* Inicia oculto */
+    position: absolute;
+    top: 100%; /* Posiciona abaixo do .name-container */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Ajusta a centralização horizontal */
+    z-index: 1; /* Define a ordem de empilhamento */
+    background-color: var(--clr-white);
+    border-radius: var(--radius);
+    box-shadow: var(--light-shadow);
+    transition: var(--transition);
+    padding: 1rem;
+    width: 90%;
+    width: 300px;
 }
 
 #list-name {
-    font-family: var(--titleFont);
+    color: var(--clr-primary-2);
     text-align: center;
 }
 
 .edit-name {
-    margin: 0 0 0 15px;
-    background-color: var(--contrastColor);
-    color: white;
-    padding: 3px 8px;
-    border: none;
+    background: var(--clr-primary-3);
+    border-color: transparent;
+    align-items: center;
+    padding: 5px 10px;
+    margin-left: 15px;
+    text-transform: capitalize;
     border-radius: 5px;
+    color: var(--clr-primary-1);
+    transition: var(--transition);
+    font-size: 1em;
 }
 
-.show-form {
-    display: inline-block;
+.edit-name:hover {
+    background: var(--clr-primary-1);
+    color: var(--clr-white);
+}
+
+.show-form{
+    display: block;
 }
 
 #list-name-input {
-    font-size: 0.9em;
-    width: 70px;
     margin: 0 0 0 15px;
-    padding: 3px 8px;
-    border: none;
-    border-radius: 5px 0 0 5px;
+    padding: 0.25rem;
+    padding-left: 1rem;
+    background-color: var(--clr-grey-3);
+    border-top-left-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+    border-color: transparent;
+    font-size: 1em;
+    flex: 1 0 auto;
+    color: var(--clr-grey-1);
+    transition: var(--transition);
+} 
+
+#list-name-input::placeholder {
+    font-family: var(--ff-secondary);
+    color: var(--clr-grey-1);
 }
 
 #change-name-button {
-    background-color: var(--contrastColor);
-    color: white;
-    margin: 0 0 0 -5px;
-    padding: 3px 8px;
-    border: none;
-    border-radius: 0 5px 5px 0;
+    background: var(--clr-primary-3);
+    border-color: transparent;
+    align-items: center;
+    margin-left: -5px;
+    padding: 5px 10px;
+    text-transform: capitalize;
+    border-top-right-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+    color: var(--clr-primary-1);
+    transition: var(--transition);
+    font-size: 1em;
 }
 
-/* formatação do form principal 
-mudanças a fazer:
-- criar responsividade
-- mudar cores e outras formatações relacionadas as variaveis */
+#change-name-button:hover {
+    background: var(--clr-primary-1);
+    color: var(--clr-white);
+}
+
+/* formatação do form principal */
 .form-control {
-    width: 100%;
-    text-align: center;
-    margin: 0 0 15px 0;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 20px 0;
 }
 
 #input-item {
-    font-size: 0.9em;
-    width: 200px;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px 0 0 5px;
+    width: 180px;
+    padding: 0.25rem;
+    padding-left: 1rem;
+    background-color: var(--clr-grey-3);
+    border-top-left-radius: var(--radius);
+    border-bottom-left-radius: var(--radius);
+    border-color: transparent;
+    font-size: 1em;
+    flex: 1 0 auto;
+    color: var(--clr-grey-1);
+    transition: var(--transition);
 }
 
 .submit-button {
-    background-color: var(--contrastColor);
-    color: white;
-    font-size: 0.9em;
-    font-weight: bold;
-    margin: 0 0 0 -5px;
+    background: var(--clr-primary-3);
+    border-color: transparent;
+    align-items: center;
+    margin-left: -5px;
     padding: 5px 10px;
-    border: none;
-    border-radius: 0 5px 5px 0;
+    text-transform: capitalize;
+    border-top-right-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+    color: var(--clr-primary-1);
+    transition: var(--transition);
+    font-size: 1em;
 }
 
-/* formatação da lista 
-mudanças a fazer:
-- criar responsividade
-- ajustar comportamento da lista
-    - mudar local do 'clear items'
-- mudar cores e outras formatações relacionadas as variaveis */
+.submit-button:hover {
+    background-color: var(--clr-primary-1);
+    color: var(--clr-white);
+}
+
+/* formatação da lista */
 .list-container {
+    margin-top: 2rem;
+    transition: var(--transition);
     visibility: hidden;
 }
 
@@ -173,37 +244,71 @@ mudanças a fazer:
 
 .list-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    width: 270px;
-    margin-bottom: -5px;
-    padding: -5px;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    transition: var(--transition);
+    padding: 0.25rem 1rem;
+    border-radius: var(--radius);
+    text-transform: capitalize;
 }
 
-.edit-button, .delete-button{
+.list-item:hover {
+    color: var(--clr-grey-1);
+    background: var(--clr-grey-3);
+}
+
+.list-item:hover .item-title {
+    color: var(--clr-grey-1);
+}
+
+.item-title {
+    margin-bottom: 0;
+    letter-spacing: 1px;
+    transition: var(--transition);
+}
+
+.edit-button,
+.delete-button {
     background: transparent;
-    border: none;
+    border-color: transparent;
     font-size: 1em;
+    margin: 0 0.15rem;
+    transition: var(--transition);
 }
 
 .edit-button {
-    color: var(--darkGreen);
+    color: var(--clr-green-light);
+}
+
+.edit-button:hover {
+    color: var(--clr-green-dark);
 }
 
 .delete-button {
-    color: var(--darkRed);
+    color: var(--clr-red-light);
+}
+
+.delete-button:hover {
+    color: var(--clr-red-dark);
 }
 
 .clear-button {
-    background-color: transparent;
-    color: var(--darkRed);
-    font-size: 1em;
-    font-weight: bold;
-    margin-top: 10px;
-    padding: 5px 10px;
-    border: none;
+    text-transform: capitalize;
+    width: 10rem;
+    height: 1.5rem;
+    display: grid;
+    align-items: center;
+    background: transparent;
+    border-color: transparent;
+    color: var(--clr-red-light);
+    margin: 0 auto;
+    font-size: 0.85rem;
+    letter-spacing: var(--spacing);
+    transition: var(--transition);
+    margin-top: 1.25rem;
 }
 
-.clear-button:hover{
-    color: var(--lightRed);
+.clear-button:hover {
+    color: var(--clr-red-dark);
 }

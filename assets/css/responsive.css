@@ -1,0 +1,51 @@
+@media (max-width: 300px) {
+    h1{
+        font-size: 1.5em;
+    }
+
+    .main-container{
+        width: 100%;
+    }
+    
+    #input-item{
+        width: 120px;
+    }
+}
+
+@media (min-width: 510px) {
+    #input-item{
+        width: 320px;
+    }
+}
+
+@media (min-width: 600px) {
+    #input-item{
+        width: 400px;
+    }
+}
+
+@media (min-width: 720px) {
+    .main-container{
+        width: 80%;
+    }
+
+    #input-item{
+        width: 440px;
+    }
+}
+
+@media (min-width: 980px) {
+    .main-container{
+        width: 60%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-container{
+        width: 50%;
+    }
+
+    #input-item{
+        width: 490px;
+    }
+}
