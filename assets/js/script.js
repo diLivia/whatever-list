@@ -21,6 +21,7 @@ editNameButton.addEventListener('click', hideButton)
 changeNameButton.addEventListener('click', changeName)
 form.addEventListener('submit', addItem)
 clearButton.addEventListener('click', clearItems)
+window.addEventListener('DOMContentLoaded', setupItems)
 
 // funções
 function hideButton(){
@@ -47,7 +48,6 @@ function addItem(e) {
 
     if (value && !editFlag) {
         const element = document.createElement("article")
-        element.classList.add("list-item")
         const attribute = document.createAttribute("data-id")
         attribute.value = id
         element.setAttributeNode(attribute)
@@ -70,10 +70,9 @@ function addItem(e) {
         deleteButton.addEventListener('click', deleteItem)
 
         list.appendChild(element)
-        displayAlert("Item added to the list", "success")
         listContainer.classList.add("show-container")
-        //add to localStorage
         addToLocalStorage(id, value)
+        displayAlert("Item added to the list", "success")
         setBackToDefault()
 
     } else if (value && editFlag) {
@@ -116,7 +115,7 @@ function deleteItem(e){
 
     displayAlert('Item deleted', 'danger')
     setBackToDefault()
-    //removeFromLocalStorage(id)
+    removeFromLocalStorage(id)
 }
 
 function clearItems(){
@@ -131,7 +130,7 @@ function clearItems(){
     listContainer.classList.remove('show-container')
     displayAlert('All items have been removed', 'danger')
     setBackToDefault()
-    //localStorage.removeItem('list')
+    localStorage.removeItem('list')
 }
 
 function setBackToDefault() {
@@ -142,8 +141,73 @@ function setBackToDefault() {
 }
 
 // funções do localStorage
-function addToLocalStorage(id, value) {}
+function getLocalStorage(){
+    return localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : []
+}
 
-function editLocalStorage(id, value) {}
+function addToLocalStorage(id, value) {
+    const item = { id, value }
+    let items = getLocalStorage()
+    items.push(item)
+    localStorage.setItem('list', JSON.stringify(items))
+}
 
-function removeFromLocalStorage(id){}
+function editLocalStorage(id, value) {
+    let items = getLocalStorage()
+    items.map(function (item) {
+        if (item.id === id) {
+            item.value = value
+        }
+        return item
+    })
+
+    localStorage.setItem('list', JSON.stringify(items))
+}
+
+function removeFromLocalStorage(id){
+    let items = getLocalStorage()
+    items = items.filter(function(item){
+        if (item.id !== id){
+            return item
+        }
+    })
+
+    localStorage.setItem('list', JSON.stringify(items))
+}
+
+//setup items
+function setupItems(){
+    let items = getLocalStorage()
+    if (items.length > 0) {
+        items.forEach(function(item){
+            createListItem(item.id, item.value)
+        })
+    }
+}
+
+function createListItem(id, value){
+    const element = document.createElement("article")
+    const attribute = document.createAttribute("data-id")
+    attribute.value = id
+    element.setAttributeNode(attribute)
+    element.classList.add('list-item')
+    element.innerHTML = `
+        <p class="item-title">${value}</p>
+        <div class="button-container">
+            <button type="button" class="edit-button">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button type="button" class="delete-button">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>
+    `
+
+    const editButton = element.querySelector('.edit-button')
+    const deleteButton = element.querySelector('.delete-button')
+    editButton.addEventListener('click', editItem)
+    deleteButton.addEventListener('click', deleteItem)
+
+    list.appendChild(element)
+    listContainer.classList.add("show-container")
+}
