@@ -124,6 +124,7 @@ button {
     padding: 1rem;
     width: 90%;
     width: 300px;
+    white-space: nowrap;
 }
 
 #list-name {
