@@ -31,8 +31,10 @@ function hideButton(){
 
 function changeName(){
     if (listNameInput.value) {
-        let newText = listNameInput.value;
-        document.getElementById("list-name").textContent = newText + " List"
+        const newName = listNameInput.value;
+        document.getElementById("list-name").textContent = newName
+        localStorage.setItem("listName", newName)
+        displayAlert("List name changed", "success")
     } else {
         displayAlert("Enter a name for your list", "danger")
     }
@@ -141,6 +143,7 @@ function setBackToDefault() {
 }
 
 // funções do localStorage
+
 function getLocalStorage(){
     return localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : []
 }
@@ -182,6 +185,11 @@ function setupItems(){
         items.forEach(function(item){
             createListItem(item.id, item.value)
         })
+    }
+
+    const savedListName = localStorage.getItem('listName');
+    if (savedListName) {
+        document.getElementById("list-name").textContent = savedListName;
     }
 }
 
